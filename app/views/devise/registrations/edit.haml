@@ -24,7 +24,7 @@
             = f.input :date_of_birth, required: false
         .row
           .form-group.col-5
-            = f.input :gender,required: false, as: :select, collection: [['Male', 'm'], ['Female', 'f']]
+            = f.input :gender,required: false, as: :radio_buttons, collection: [['Male', 'male'], ['Female', 'female']], label: false
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           %p
             Currently waiting confirmation for: #{resource.unconfirmed_email}

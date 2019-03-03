@@ -26,6 +26,7 @@ gem 'mini_magick'
 gem 'rubocop', '~> 0.64.0', require: false
 gem 'carrierwave', '~> 1.0'
 gem 'cloudinary'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'pry-rails'
