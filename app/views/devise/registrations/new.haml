@@ -6,11 +6,25 @@
       = f.error_notification
       %form
         .row
+          .form-group.col-5
+            = f.input :first_name, required: false, autofocus: true
+          .form-group.col-5
+            = f.input :last_name, required: false, autofocus: true
+        .row
           .form-group.col-10
             = f.input :email, required: false, autofocus: true , input_html: { autocomplete: "email" }
         .row
           .form-group.col-10
             = f.input :username, required: false, autofocus: true
+        .row
+          .form-group.col-10
+            = f.input :phone_number, required: false
+        .row
+          .form-group.col-10
+            = f.input :date_of_birth, required: false
+        .row
+          .form-group.col-5
+            = f.input :gender,required: false, as: :select, collection: [['Male', 'm'], ['Female', 'f']]
         .row
           .form-group.col-10
             = f.input :password, required: false,
