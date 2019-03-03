@@ -1,0 +1,14 @@
+.container
+  .col-5.offset-4
+    %br
+    %h2
+      Log in
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      %form
+        .row
+          .form-group.col-6
+            = f.input :login,required: false, autofocus: true
+            = f.input :password, required: false, input_html: { autocomplete: "current-password" }
+            = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+        .form-actions
+          = f.button :submit, "Log in"

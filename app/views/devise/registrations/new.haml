@@ -1,0 +1,23 @@
+.container
+  .col-5.offset-3
+    %h2 Sign up
+    %br
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      %form
+        .row
+          .form-group.col-10
+            = f.input :email, required: false, autofocus: true , input_html: { autocomplete: "email" }
+        .row
+          .form-group.col-10
+            = f.input :username, required: false, autofocus: true
+        .row
+          .form-group.col-10
+            = f.input :password, required: false,
+            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            input_html: { autocomplete: "new-password" }
+        .row
+          .form-group.col-10
+            = f.input :password_confirmation, required: false, input_html: { autocomplete: "new-password" }
+        .form-actions
+          = f.button :submit, "Sign up"
