@@ -4,6 +4,7 @@
     -cars.each do |car|
       %br
       .card{:style => "width: 22rem;"}
+        = image_tag car.carpic_url :index
         .card-body#index
           %h4.text-center.card-title=car.model
           %img.card-img-top
