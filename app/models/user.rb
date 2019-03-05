@@ -1,15 +1,14 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: [:facebook],
           authentication_keys: [:login]
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false }, format: {with: /\A[\w]*\z/ }
-  # validates :first_name, :last_name, :gender, presence: true
+  validates :first_name, :last_name, :gender, presence: true
   validates :email, uniqueness: true
-  # validates :phone_number, presence: true, uniqueness: true, numericality: {only_integer: true}, length: {is: 9}
+  validates :phone_number, presence: true, uniqueness: true, numericality: {only_integer: true}, length: {is: 9}
+  has_many :cars
 
   attr_writer :login
 

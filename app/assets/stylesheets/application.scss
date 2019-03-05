@@ -13,3 +13,41 @@
  */
  @import "bootstrap";
  @import "font-awesome";
+ .sort_link {
+    color: black;
+  }
+
+  .round-image-50 {
+     background-color: white;
+     border-radius: 25px;
+     -moz-border-radius: 25px;
+     -webkit-border-radius: 25px;
+     overflow: hidden;
+     text-align: center;
+     img { width: 100% }
+ }
+
+ .navbar {
+   background: -webkit-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+   background:    -moz-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+   background:     -ms-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+   background:      -o-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+   background:         linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+ }
+
+ .navbar-light .navbar-nav .nav-link {
+   color: #282F2E;
+ }
+
+ #napis {
+   letter-spacing: -1px;
+   font-size: 1em;
+   font-weight: 300;
+   padding-right: 10px;
+   color: #AFCDC7;
+ }
+
+ .btn-default {
+   color: #282F2E;
+   text-transform: uppercase;
+ }
