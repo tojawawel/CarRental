@@ -8,15 +8,14 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .container
+    - if user_signed_in?
+      =render 'layouts/user_navbar'
+    - else
+      =render 'layouts/guest_navbar'
     - flash.each do |name,msg|
       - next if name.to_s == 'timedout'
       %div{class: "alert alert-#{name}"}
         = msg
         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
           %span{"aria-hidden" => "true"} ×
-    %a=link_to 'Edit your account', edit_user_registration_path
-    -# %a=link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path
-    %a=link_to 'Log out', destroy_user_session_path, method: :delete
-    %a=link_to 'Log in', new_user_session_path
-    %a=link_to 'Sign up as user', new_user_registration_path
     = yield
