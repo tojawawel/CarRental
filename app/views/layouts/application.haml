@@ -7,11 +7,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .container
-    - if user_signed_in?
-      =render 'layouts/user_navbar'
-    - else
-      =render 'layouts/guest_navbar'
+  - if user_signed_in?
+    =render 'layouts/user_navbar'
+  - else
+    =render 'layouts/guest_navbar'
+  .container
     - flash.each do |name,msg|
       - next if name.to_s == 'timedout'
       %div{class: "alert alert-#{name}"}
