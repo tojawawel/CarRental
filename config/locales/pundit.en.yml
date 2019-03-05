@@ -1,0 +1,7 @@
+en:
+ pundit:
+   default: 'You cannot perform this action.'
+   car_policy:
+     edit?: 'You cannot edit this car!'
+     destroy?: 'You cannot remove this car!'
+     new?: 'You cannot create cars!'

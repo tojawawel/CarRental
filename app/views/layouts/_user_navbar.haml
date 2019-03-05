@@ -2,8 +2,8 @@
   %nav.navbar.navbar-expand-lg.navbar-light.bg-default
     %ul.navbar-nav.mr-auto
       %h3=link_to 'CarRent', root_path, id: 'napis'
-      =link_to 'Cars', cars_path, class: 'nav-link'
-      =link_to 'Add car to base', new_car_path, class: 'nav-link'
+      =link_to 'Cars', cars_path, class: 'nav-link' if policy(Car).index?
+      =link_to 'Add car to base', new_car_path, class: 'nav-link' if policy(Car).new?
     %ul.navbar-nav.ml-auto
       %li.nav-item.dropdown
         %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

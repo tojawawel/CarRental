@@ -14,9 +14,9 @@
             $
             .text-center
               .btn-group{"aria-label" => "Basic example", role: "group"}
-                =link_to 'Show', car_path(car), :class => "button btn btn-info"
-                =link_to 'Edit', edit_car_path(car), :class => "button btn btn-primary"
-                =link_to 'Delete', car_path(car), method: :delete, data: {confirm: "You sure?"},:class => "button btn btn-danger"
+                =link_to 'Show', car_path(car), :class => "button btn btn-info" if policy(car).show?
+                =link_to 'Edit', edit_car_path(car), :class => "button btn btn-primary" if policy(car).update?
+                =link_to 'Delete', car_path(car), method: :delete, data: {confirm: "You sure?"},:class => "button btn btn-danger" if policy(car).destroy?
   %br
 .text-right
 = paginate @cars

@@ -2,6 +2,7 @@
   %nav.navbar.navbar-expand-lg.navbar-light.bg-default
     %ul.navbar-nav.mr-auto
       %h3=link_to 'CarRent', root_path, id: 'napis'
+      =link_to 'Cars', cars_path, class: 'nav-link' if policy(Car).index?
     %ul.navbar-nav.ml-auto
       %a=link_to 'Log in', new_user_session_path, class: 'nav-link'
       %a=link_to 'Sign up', new_user_registration_path, class: 'nav-link'
