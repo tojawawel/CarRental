@@ -4,7 +4,7 @@
     -cars.each do |car|
       %br
       .card{:style => "width: 22rem;"}
-        = image_tag car.carpic_url :index
+        = image_tag car.carpic_url :index if car.carpic_url
         .card-body#index
           %h4.text-center.card-title=car.model
           %img.card-img-top
@@ -18,3 +18,5 @@
                 =link_to 'Edit', edit_car_path(car), :class => "button btn btn-primary"
                 =link_to 'Delete', car_path(car), method: :delete, data: {confirm: "You sure?"},:class => "button btn btn-danger"
   %br
+.text-right
+= paginate @cars
