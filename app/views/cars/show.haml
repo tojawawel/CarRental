@@ -1,0 +1,24 @@
+%br
+.card
+  %img.card-img-top
+  .card-body
+    %p.card-text
+      %strong Brand:
+      = @car.brand
+    %p.card-text
+      %strong Model:
+      = @car.model
+    %p.card-text
+      %strong Price:
+      = @car.price
+      $ per day
+    %p.card-text
+      %strong Release date:
+      = @car.year.strftime("%Y")
+    %p.card-text
+      %strong Description
+      = @car.description
+      %br
+      %a= link_to 'Back to all cars', cars_path, class: "btn btn-info"
+      %a= link_to 'Edit this car', edit_car_path(@car), class: "btn btn-primary"
+      %a= link_to 'Delete this car', car_path(@car), method: :delete, class: "btn btn-danger"

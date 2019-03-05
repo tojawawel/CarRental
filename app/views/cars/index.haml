@@ -1,0 +1,19 @@
+%h1.text-center Cars
+- @cars.each_slice(3) do |cars|
+  .row
+    -cars.each do |car|
+      %br
+      .card{:style => "width: 22rem;"}
+        .card-body#index
+          %h4.text-center.card-title=car.model
+          %img.card-img-top
+          %p.text-center.card-text
+            Price for a day:
+            =car.price
+            $
+            .text-center
+              .btn-group{"aria-label" => "Basic example", role: "group"}
+                =link_to 'Show', car_path(car), :class => "button btn btn-info"
+                =link_to 'Edit', edit_car_path(car), :class => "button btn btn-primary"
+                =link_to 'Delete', car_path(car), method: :delete, data: {confirm: "You sure?"},:class => "button btn btn-danger"
+  %br

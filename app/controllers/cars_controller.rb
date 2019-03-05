@@ -11,7 +11,7 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
-    # @car.user = current_user
+    @car.user = current_user
     if @car.save
       flash[:success] = 'Car was successfully created'
       redirect_to car_path(@car)

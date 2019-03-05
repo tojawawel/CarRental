@@ -1,0 +1,22 @@
+%br
+.col-5.offset-3
+  %h1 Add car to your base!
+  = simple_form_for @car do |f|
+    = f.error_notification
+    %form
+      .row
+        .form-group.col-6
+          =f.input :brand, required: false, error: true
+      .row
+        .form-group.col-6
+          =f.input :model, required: false, error: true
+      .row
+        .form-group.col-6
+          =f.input :year, as: :date, start_year: Date.today.year, end_year: Date.today.year - 10, include_blank: true, order: [:month, :year], required: false, error: true, :discard_day => true, :discard_month => true
+      .row
+        .form-group.col-6
+          =f.input :price, required: false, error: true, input_html: { min: 0 }
+      .row
+        .form-group.col-10
+          =f.input :description, required: false, error: true
+      =f.submit class: "btn btn-primary"
