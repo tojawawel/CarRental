@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :gender, presence: true
   validates :email, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true, numericality: {only_integer: true}, length: {is: 9}
+  enum gender: [:male, :female]
   has_many :cars
 
   attr_writer :login
