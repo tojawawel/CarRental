@@ -11,8 +11,8 @@
         .form-group.col-6
           =f.input :model, required: false, error: true
       .row
-        .form-group.col-6
-          =f.input :carpic, as: :file, required: false, error: true
+        .form-group.col-8
+          =f.input :carpic, as: :file, required: false, error: true, label: "Picture"
       .row
         .form-group.col-6
           =f.input :year, as: :date, start_year: Date.today.year, end_year: Date.today.year - 10, include_blank: true, order: [:month, :year], required: false, error: true, :discard_day => true, :discard_month => true
