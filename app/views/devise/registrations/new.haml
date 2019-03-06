@@ -23,7 +23,7 @@
           = f.input :date_of_birth, required: false, as: :date, start_year: Date.today.year-18, end_year: Date.today.year - 100, include_blank: true
       .row
         .form-group.col-5
-          = f.input :gender,required: false, as: :radio_buttons, collection: User.genders.map {|k,v| k}, label: false
+          = f.input :gender,required: false, as: :radio_buttons, collection: Hash[User.genders.map { |k,v| [ k.capitalize, k ] }], label: false
       .row
         .form-group.col-10
           = f.input :password, required: false,
