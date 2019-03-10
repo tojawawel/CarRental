@@ -51,6 +51,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rails-controller-testing'
+  gem 'pundit-matchers', '~> 1.6.0'
 end
 
 

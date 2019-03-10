@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
+  after_action :verify_authorized
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -16,7 +17,7 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     @car.user = current_user
-    authorize @cars
+    authorize @car
 
     if @car.save
       flash[:success] = 'Car was successfully created'
@@ -61,6 +62,6 @@ class CarsController < ApplicationController
   def user_not_authorized(exception)
     policy_name = exception.policy.class.to_s.underscore
     flash[:danger] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
-    redirect_to(request.referrer || root_path)
+      redirect_to(request.referrer || root_path)
   end
 end

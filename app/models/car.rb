@@ -6,6 +6,6 @@ class Car < ApplicationRecord
   mount_uploader :carpic, CarPicUploader
 
   def full_car
-    "#{brand} #{model} "
+    "#{brand} #{model}"
   end
 end
