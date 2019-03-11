@@ -1,0 +1,9 @@
+%h1 Reviews
+- @car.reviews.each do |review|
+  .card
+    .card-body
+      %h5.card-title= review.user.username
+      %h6.card-subtitle.mb-2.text-muted= review.created_at.strftime("%m/%d/%y %H:%M")
+      %p.card-text= simple_format(review.body)
+      = link_to "Delete", car_review_path(car_id: review.car_id, id: review.id), method: :delete, data: {confirm: "Pewniak?"}, class: "btn btn-danger"
+  %br

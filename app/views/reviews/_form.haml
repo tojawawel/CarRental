@@ -1,0 +1,8 @@
+= render 'common/errors', model: @review
+= simple_form_for @car.reviews.build, url: car_reviews_path(@car) do |f|
+  %form
+    .form-group.col-6
+      =f.input :body, required: false, error: true, placeholder:"Your review..."
+    .row
+      .form-group.col-6
+        =f.button :submit, class: "btn btn-primary"

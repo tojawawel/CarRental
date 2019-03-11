@@ -19,3 +19,5 @@
         =link_to 'Back to all cars', cars_path, class: "btn btn-info" if policy(Car).index?
         =link_to 'Edit', edit_car_path(@car), :class => "button btn btn-primary" if policy(@car).update?
         =link_to 'Delete', car_path(@car), method: :delete, data: {confirm: "You sure?"},:class => "button btn btn-danger" if policy(@car).destroy?
+=render 'reviews/review'
+=render 'reviews/form'
