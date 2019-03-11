@@ -5,7 +5,8 @@ class CarsController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def index
-    @cars = Car.all.page(params[:page]).per(6)
+    @q = Car.ransack(params[:q])
+    @cars = @q.result.includes(:user).page(params[:page]).per(6)
     authorize @cars
   end
 
@@ -46,6 +47,11 @@ class CarsController < ApplicationController
     @car.destroy
     flash[:danger] = 'Car was successfully deleted'
     redirect_to cars_path
+  end
+
+  def search
+    index
+    render :index
   end
 
   private

@@ -1,3 +1,8 @@
+Sort by:
+=sort_link(@q, :price, default_order: :desc)
+=sort_link(@q, :model, default_order: :desc)
+-# =sort_link(@q, :reviews_count, 'Comments', default_order: :desc)
+-# =sort_link(@q, :average_rating, 'Average rating', default_order: :desc)
 %h1.text-center Cars
 - @cars.each_slice(3) do |cars|
   .row
@@ -6,7 +11,7 @@
       .card{:style => "width: 22rem;"}
         = image_tag car.carpic_url :index if car.carpic_url
         .card-body#index
-          %h4.text-center.card-title=car.model
+          %h4.text-center.card-title=car.full_car
           %img.card-img-top
           %p.text-center.card-text
             Price for a day:

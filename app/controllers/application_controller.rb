@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_global_search_variable
+
   include Pundit
   protect_from_forgery
+  
+  def set_global_search_variable
+    @q = Car.search(params[:q])
+  end
 
   protected
 

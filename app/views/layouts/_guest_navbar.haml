@@ -3,6 +3,17 @@
     %ul.navbar-nav.mr-auto
       %h3=link_to 'CarRent', root_path, id: 'napis'
       =link_to 'Cars', cars_path, class: 'nav-link' if policy(Car).index?
+      = search_form_for @q do |f|
+        .input-group.mb-3
+          = f.search_field :model_or_brand_cont, placeholder: "Search for model or brand", class: "input form-control"
+          .input-group-append
+            = f.submit class: "btn btn-secondary"
     %ul.navbar-nav.ml-auto
       %a=link_to 'Log in', new_user_session_path, class: 'nav-link'
       %a=link_to 'Sign up', new_user_registration_path, class: 'nav-link'
+
+
+      -# = search_form_for @q, url: search_cars_path, html: { method: :post } do |f|
+      -#     .input-group-append
+      -#       = f.submit class: "btn btn-default"
+      -#       %button#button-addon2.btn.btn-outline-secondary{:type => "button btn-default"} Button

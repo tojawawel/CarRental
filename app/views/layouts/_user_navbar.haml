@@ -3,6 +3,11 @@
     %ul.navbar-nav.mr-auto
       %h3=link_to 'CarRent', root_path, id: 'napis'
       =link_to 'Cars', cars_path, class: 'nav-link' if policy(Car).index?
+      = search_form_for @q do |f|
+        .input-group.mb-3
+          = f.search_field :model_or_brand_cont, placeholder: "Search for model or brand", class: "input form-control"
+          .input-group-append
+            = f.submit class: "btn btn-secondary"
       =link_to 'Add car to base', new_car_path, class: 'nav-link' if policy(Car).new?
     %ul.navbar-nav.ml-auto
       %li.nav-item.dropdown
